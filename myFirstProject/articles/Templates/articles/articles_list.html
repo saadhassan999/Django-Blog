@@ -1,12 +1,13 @@
+{% load static %}
 <!Doctype html>
-
 <head>
     <title>ArticlesList</title>
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Articles List</h1>
+        <h1 style="margin-left: 395px;font-weight: bold;">Articles List</h1>
         <div>
             {% for article in articles %}
                 <div>
