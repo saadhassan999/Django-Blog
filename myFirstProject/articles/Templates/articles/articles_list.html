@@ -2,9 +2,22 @@
 
 <head>
     <title>ArticlesList</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Articles List</h1>
-<p>Welcome to Django Articles</p>
+    <div class="container">
+        <h1>Articles List</h1>
+        <div>
+            {% for article in articles %}
+                <div>
+                    <h1>
+                        <a href="#">{{article.title}}</a>
+                    </h1>
+                    <p>{{article.snippet}}</p>
+                    <p>{{article.date}}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
