@@ -1,24 +1,18 @@
-{% load static %}
-<!Doctype html>
-<head>
-    <title>ArticlesList</title>
-    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-        <h1 style="margin-left: 395px;font-weight: bold;">Articles List</h1>
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div>
+    <h1 style="margin-left: 395px;font-weight: bold;">Articles List</h1>
+    <div>
+        {% for article in articles %}
         <div>
-            {% for article in articles %}
-                <div>
-                    <h1>
-                        <a href="#">{{article.title}}</a>
-                    </h1>
-                    <p>{{article.snippet}}</p>
-                    <p>{{article.date}}</p>
-                </div>
-            {% endfor %}
+            <h1>
+                <a href="#">{{article.title}}</a>
+            </h1>
+            <p>{{article.snippet}}</p>
+            <p>{{article.date}}</p>
         </div>
+        {% endfor %}
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

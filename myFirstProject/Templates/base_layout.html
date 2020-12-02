@@ -1,0 +1,14 @@
+{% load static %}
+<!Doctype html>
+<head>
+    <title>Articles</title>
+    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
