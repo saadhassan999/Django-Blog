@@ -1,12 +1,15 @@
 {% load static %}
 <!Doctype html>
 <head>
-    <title>Articles</title>
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
     <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
 </head>
 <body>
-    <div class="wrapper">
+    <div class="container">
         <h1><a href="{% url 'articles:list' %}"><img src="{% static 'djangonautic.png' %}"></a></h1>
         {% block content %}
         {% endblock %}

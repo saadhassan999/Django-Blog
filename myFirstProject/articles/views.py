@@ -7,4 +7,7 @@ def articles_list(request):
     articles = Article.objects.all().order_by('date')
     return render(request, 'articles/articles_list.html', {'articles':articles})
 def articles_detail(request, slug):
-    return HttpResponse('This is Slug : ' + slug)
+    # return HttpResponse('This is Slug : ' + slug)
+    article = Article.objects.get(slug=slug)
+    return render(request, 'articles/articles_detail.html', {'article' : article})
+
