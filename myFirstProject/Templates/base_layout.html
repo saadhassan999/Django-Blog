@@ -9,8 +9,20 @@
     <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1><a href="{% url 'articles:list' %}"><img src="{% static 'djangonautic.png' %}"></a></h1>
+        <nav>
+            <ul>
+                <li>
+                    <form method="POST" action="{% url 'accounts:logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
         {% block content %}
         {% endblock %}
     </div>
