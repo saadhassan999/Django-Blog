@@ -8,6 +8,9 @@
     <form class="form-group" method="POST">
         {% csrf_token %}
         {{form}}
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{request.GET.next}}"></input>
+        {% endif %}
         <button type="submit" class="btn btn-success">Login</button>
     </form>
 </div>
