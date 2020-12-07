@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1><a href="{% url 'articles:list' %}"><img src="{% static 'djangonautic.png' %}"></a></h1>
+        <h1><a href="{% url 'home' %}"><img src="{% static 'djangonautic.png' %}"></a></h1>
         <nav>
             <ul>
                 {% if user.is_authenticated %}
