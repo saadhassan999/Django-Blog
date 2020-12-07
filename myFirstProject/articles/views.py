@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Article
+from .forms import CreateArticle
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -15,4 +16,13 @@ def articles_detail(request, slug):
 
 @login_required(login_url='/accounts/login')
 def create_article(request):
-    return render(request, 'articles/create_articles.html')
+    if request.method == "POST":
+        form = CreateArticle(request.POST, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.save() 
+            return redirect('articles:list')
+    else:
+        form = CreateArticle()
+    return render(request, 'articles/create_articles.html', {'form' : form})
