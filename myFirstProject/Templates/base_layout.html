@@ -5,17 +5,16 @@
         {% block title %}
         {% endblock %}
     </title>
-    <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
-    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mystylesheet.css' %}">
 </head>
 <body>
-    <header>
-        <h1><a href="{% url 'home' %}"><img src="{% static 'djangonautic.png' %}"></a></h1>
+    <header class="wrapper">
+        <h1><a href="{% url 'home' %}"><img src="{% static 'img1.jpg' %}" alt="website-logo"></a></h1>
         <nav>
             <ul>
                 {% if user.is_authenticated %}
                     <li>
-                        <a href="{% url 'articles:create' %}">New Article</a>
+                        <a href="{% url 'articles:create' %}" class="highlight">New Article</a>
                     </li>
                     <li>
                         <form method="POST" action="{% url 'accounts:logout' %}">
@@ -34,7 +33,7 @@
             </ul>
         </nav>
     </header>
-    <div class="container">
+    <div class="wrapper">
         {% block content %}
         {% endblock %}
     </div>
